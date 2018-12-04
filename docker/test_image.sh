@@ -30,7 +30,7 @@ docker ps | grep ${IMAGE}
 echo "Running /Azimuth/azimuth/single.py ACAGCTGATCTCCAGATATGACCATGGGTT 2 0.18"
 time docker exec ${CONTAINER} /Azimuth/azimuth/single.py ACAGCTGATCTCCAGATATGACCATGGGTT 2 0.18
 
-echo "Running /Azimuth/azimuth/batch.py /shared/test_data.tsv"
+echo "Running /Azimuth/azimuth/batch.py /shared/1000guides.tsv"
 time docker exec ${CONTAINER} /Azimuth/azimuth/batch.py /shared/1000guides.tsv
 
 echo "Stopping and removing container ..."
