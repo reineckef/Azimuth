@@ -21,10 +21,8 @@ def main(argv):
 
    predictions = azimuth.model_comparison.predict( np.array( guides ), np.array(  positions  ), np.array(  proteins  ))
 
-   n = 0
    for i, prediction in enumerate(predictions):
-      print guides[n], prediction
-      n = n + 1
+      print guides[i], prediction
 
 if __name__ == "__main__":
    main(sys.argv[1:])
