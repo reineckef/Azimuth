@@ -120,8 +120,8 @@ def combine_organisms(human_data, mouse_data):
         mouse_X = pandas.concat([mouse_X, X], axis=0)
         mouse_Y = pandas.concat([mouse_Y, Y], axis=0)
 
-    X = pandas.concat([X_CD13, X_CD15, X_CD33, mouse_X], axis=0)
-    Y = pandas.concat([Y_CD13, Y_CD15, Y_CD33, mouse_Y], axis=0)
+    X = pandas.concat([X_CD13, X_CD15, X_CD33, mouse_X], axis=0, sort=True)
+    Y = pandas.concat([Y_CD13, Y_CD15, Y_CD33, mouse_Y], axis=0, sort=True)
 
     return X, Y
 
