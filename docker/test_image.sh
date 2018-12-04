@@ -22,7 +22,7 @@ THISDIR=$(pwd)
 STARTER="docker run -d -v ${THISDIR}:/shared -t ${IMAGE} /bin/bash"
 
 echo "${STARTER}"
-CONTAINER=$( ${STARTER} )
+CONTAINER=$( ${STARTER} | cut -c 1-12 )
 
 echo "$(date) Container ID = ${CONTAINER}"
 docker ps | grep ${IMAGE}
