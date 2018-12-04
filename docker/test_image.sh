@@ -1,10 +1,10 @@
-CONTAINER=${1:-"qiaseq/azimuth"}
+IMAGE=${1:-"qiaseq/azimuth"}
 
-echo "$(date) Testing container ${CONTAINER}"
+echo "$(date) Testing image ${IMAGE}"
 
-docker images | grep ${CONTAINER}
+docker images | grep ${IMAGE}
 
-time docker run --rm -it ${CONTAINER} /Azimuth/azimuth/example.py
+time docker run --rm -it ${IMAGE} /Azimuth/azimuth/example.py
 
 echo "
 Expected Output:
@@ -16,3 +16,4 @@ CCAGAAGTTTGAGCCACAAACCCATGGTCA 0.659245390401
 
 "
 
+time docker run --rm -v $(pwd):/shared ${IMAGE} /Azimuth/azimuth/batch /shared/test_data.tsv

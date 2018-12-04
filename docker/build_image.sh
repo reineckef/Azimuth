@@ -1,8 +1,9 @@
-CONTAINER=${1:-"qiaseq/azimuth"}
+IMAGE=${1:-"qiaseq/azimuth"}
+RUNTIME=$(date)
 
-echo "$(date) Building container ${CONTAINER}"
+echo "$(date) Building image ${IMAGE}"
 
-docker build -t ${CONTAINER} .
+docker build -t ${IMAGE} --build-arg NOCACHEFROMHERE="${RUNTIME}" .
 
 echo "
 Expected Output:
@@ -13,3 +14,5 @@ CAGCTGATCTCCAGATATGACCATGGGTTT 0.687944237021
 CCAGAAGTTTGAGCCACAAACCCATGGTCA 0.659245390401
 
 "
+
+docker images | grep "${IMAGE}"
