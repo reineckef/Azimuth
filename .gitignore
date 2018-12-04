@@ -55,3 +55,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Bash history
+.dir_bash_history

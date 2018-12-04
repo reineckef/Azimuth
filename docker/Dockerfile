@@ -17,3 +17,7 @@ RUN cd /opt/conda/lib/python2.7/site-packages/Azimuth-2.0-py2.7.egg/azimuth/ \
   && python model_comparison.py
 
 RUN echo "\nTESTING THE INSTALLATION:\n\n" && /Azimuth/azimuth/example.py
+
+ARG NOCACHEFROMHERE=1
+
+RUN cd /Azimuth && git pull
