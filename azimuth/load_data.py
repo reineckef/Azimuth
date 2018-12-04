@@ -129,8 +129,8 @@ def combine_organisms(human_data, mouse_data):
 def read_V1_data(data_file, learn_options, AML_file=cur_dir + "/data/V1_suppl_data.txt"):
     if data_file is None:
         data_file = cur_dir + "/data/V1_data.xlsx"
-    human_data = pandas.read_excel(data_file, sheetname=0, index_col=[0, 1])
-    mouse_data = pandas.read_excel(data_file, sheetname=1, index_col=[0, 1])
+    human_data = pandas.read_excel(data_file, sheet_name=0, index_col=[0, 1])
+    mouse_data = pandas.read_excel(data_file, sheet_name=1, index_col=[0, 1])
     Xdf, Y = combine_organisms(human_data, mouse_data)
 
     # get position within each gene, then join and re-order
@@ -174,8 +174,8 @@ def read_xu_et_al(data_file, learn_options=None, verbose=True, subsetting='ours'
     aggregated = None
 
     for d in datasets:
-        data_efficient = pandas.read_excel(data_file, sheetname='%s_efficient_sgRNA' % d, skiprows=2)
-        data_inefficient = pandas.read_excel(data_file, sheetname='%s_inefficient_sgRNA' % d, skiprows=2)
+        data_efficient = pandas.read_excel(data_file, sheet_name='%s_efficient_sgRNA' % d, skiprows=2)
+        data_inefficient = pandas.read_excel(data_file, sheet_name='%s_inefficient_sgRNA' % d, skiprows=2)
 
         data_efficient['threshold'] = 1.
         data_inefficient['threshold'] = 0.
@@ -231,7 +231,7 @@ def read_V2_data(data_file, learn_options=None, verbose=True):
     # import predict as pr; a1, g1, t1, X1, Y1 = pr.data_setup()
     # a1.index.names
 
-    data = pandas.read_excel(data_file, sheetname="ResultsFiltered", skiprows=range(0, 6+1), index_col=[0, 4])
+    data = pandas.read_excel(data_file, sheet_name="ResultsFiltered", skiprows=range(0, 6+1), index_col=[0, 4])
     # grab data relevant to each of three drugs, which exludes some genes
     # note gene MED12 has two drugs, all others have at most one
     Xdf = pandas.DataFrame()
@@ -337,7 +337,7 @@ def read_V2_data(data_file, learn_options=None, verbose=True):
     if learn_options is not None and learn_options["weighted"] == "variance":
         print "computing weights from replicate variance..."
         # compute the variance across replicates so can use it as a weight
-        data = pandas.read_excel(data_file, sheetname="Normalized", skiprows=range(0, 6+1), index_col=[0, 4])
+        data = pandas.read_excel(data_file, sheet_name="Normalized", skiprows=range(0, 6+1), index_col=[0, 4])
         data.index.names = ["Sequence", "Target gene"]
 
         experiments = {}
